@@ -305,10 +305,10 @@ public class FlutterLocalNotificationsPlugin implements MethodCallHandler, Plugi
         long startTimeMilliseconds = notificationDetails.calledAt;
         if (notificationDetails.repeatTime != null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(System.currentTimeMillis());
             calendar.set(Calendar.HOUR_OF_DAY, notificationDetails.repeatTime.hour);
             calendar.set(Calendar.MINUTE, notificationDetails.repeatTime.minute);
             calendar.set(Calendar.SECOND, notificationDetails.repeatTime.second);
+            calendar.set(Calendar.MILLISECOND, 0);
             if (notificationDetails.day != null) {
                 calendar.set(Calendar.DAY_OF_WEEK, notificationDetails.day);
             }
